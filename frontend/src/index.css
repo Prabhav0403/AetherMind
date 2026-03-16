@@ -1,0 +1,231 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #06192b;
+    --bg-secondary: #0d2137;
+    --bg-card: #102a43;
+    --bg-elevated: #1f164a;
+    --border: rgba(148, 180, 212, 0.12);
+    --border-active: rgba(148, 180, 212, 0.3);
+    --text-primary: #e8f1f9;
+    --text-secondary: #829ab1;
+    --text-muted: #4a6785;
+    --accent-amber: #f59e0b;
+    --accent-emerald: #10b981;
+    --accent-rose: #f43f5e;
+    --accent-blue: #3b82f6;
+    --agent-planner: #8b5cf6;
+    --agent-researcher: #3b82f6;
+    --agent-analyst: #f59e0b;
+    --agent-writer: #10b981;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+  }
+}
+
+@layer components {
+  /* Card system */
+  .card {
+    @apply rounded-xl border;
+    background: var(--bg-card);
+    border-color: var(--border);
+  }
+
+  .card-elevated {
+    @apply rounded-xl border;
+    background: var(--bg-elevated);
+    border-color: var(--border-active);
+  }
+
+  /* Button system */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-medium text-sm transition-all duration-200;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    border: 1px solid rgba(59, 130, 246, 0.5);
+  }
+  .btn-primary:hover:not(:disabled) {
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.25);
+  }
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200;
+    background: var(--bg-elevated);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover:not(:disabled) {
+    color: var(--text-primary);
+    border-color: var(--border-active);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-all duration-200;
+    color: var(--text-secondary);
+  }
+  .btn-ghost:hover {
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+  }
+
+  /* Agent badges */
+  .agent-badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+  .agent-planner   { background: rgba(139,92,246,0.15); color: #a78bfa; border: 1px solid rgba(139,92,246,0.3); }
+  .agent-researcher{ background: rgba(59,130,246,0.15); color: #93c5fd; border: 1px solid rgba(59,130,246,0.3); }
+  .agent-analyst   { background: rgba(245,158,11,0.15); color: #fcd34d; border: 1px solid rgba(245,158,11,0.3); }
+  .agent-writer    { background: rgba(16,185,129,0.15); color: #6ee7b7; border: 1px solid rgba(16,185,129,0.3); }
+  .agent-orchestrator { background: rgba(99,102,241,0.15); color: #a5b4fc; border: 1px solid rgba(99,102,241,0.3); }
+
+  /* Status badges */
+  .status-pending    { background: rgba(148,163,184,0.1); color: #94a3b8; }
+  .status-running    { background: rgba(59,130,246,0.15); color: #60a5fa; }
+  .status-completed  { background: rgba(16,185,129,0.15); color: #34d399; }
+  .status-failed     { background: rgba(244,63,94,0.15);  color: #fb7185; }
+
+  /* Input system */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 outline-none;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    caret-color: #3b82f6;
+  }
+  .input-field::placeholder {
+    color: var(--text-muted);
+  }
+  .input-field:focus {
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.08);
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    @apply h-1.5 rounded-full overflow-hidden;
+    background: var(--bg-elevated);
+  }
+  .progress-fill {
+    @apply h-full rounded-full transition-all duration-700 ease-out;
+    background: linear-gradient(90deg, #3b82f6, #10b981);
+  }
+
+  /* Animated dot */
+  .dot-pulse {
+    @apply w-2 h-2 rounded-full;
+    animation: dotPulse 1.5s ease-in-out infinite;
+  }
+
+  /* Grid background */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Glow effects */
+  .glow-blue  { box-shadow: 0 0 30px rgba(59,130,246,0.15); }
+  .glow-amber { box-shadow: 0 0 30px rgba(245,158,11,0.15); }
+
+  /* Prose for report */
+  .report-prose {
+    @apply text-sm leading-relaxed;
+    color: var(--text-primary);
+  }
+  .report-prose p { @apply mb-4; }
+  .report-prose h3 { @apply text-base font-semibold mb-2 mt-4; color: var(--text-primary); }
+
+  /* Typing animation */
+  .typing-cursor::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #60a5fa, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+}
+
+/* Animations */
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg,
+    var(--bg-elevated) 25%,
+    rgba(148, 180, 212, 0.06) 50%,
+    var(--bg-elevated) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+/* Log item enter animation */
+.log-item {
+  animation: slideUp 0.3s ease-out;
+}

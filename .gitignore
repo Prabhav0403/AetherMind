@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+*.egg
+.pytest_cache/
+.mypy_cache/
+
+# Environment
+.env
+*.env.local
+
+# Data directories (not tracked)
+data/chroma/
+data/faiss/
+data/uploads/
+data/reports/
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/

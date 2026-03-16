@@ -1,0 +1,35 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"></stop>
+      <stop offset="100%" stop-color="#06b6d4"></stop>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="256" height="256" rx="48" fill="#0f172a"></rect>
+
+  <!-- Central brain node -->
+  <circle cx="128" cy="120" r="30" fill="url(#grad)"></circle>
+
+  <!-- Connection nodes -->
+  <circle cx="64" cy="64" r="10" fill="#60a5fa"></circle>
+  <circle cx="192" cy="64" r="10" fill="#60a5fa"></circle>
+  <circle cx="64" cy="176" r="10" fill="#60a5fa"></circle>
+  <circle cx="192" cy="176" r="10" fill="#60a5fa"></circle>
+
+  <!-- Lines connecting nodes -->
+  <line x1="128" y1="120" x2="64" y2="64" stroke="#38bdf8" stroke-width="3"></line>
+  <line x1="128" y1="120" x2="192" y2="64" stroke="#38bdf8" stroke-width="3"></line>
+  <line x1="128" y1="120" x2="64" y2="176" stroke="#38bdf8" stroke-width="3"></line>
+  <line x1="128" y1="120" x2="192" y2="176" stroke="#38bdf8" stroke-width="3"></line>
+
+  <!-- Document symbol -->
+  <rect x="104" y="160" width="48" height="36" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="2"></rect>
+
+  <line x1="112" y1="170" x2="144" y2="170" stroke="#38bdf8" stroke-width="2"></line>
+  <line x1="112" y1="178" x2="140" y2="178" stroke="#38bdf8" stroke-width="2"></line>
+  <line x1="112" y1="186" x2="136" y2="186" stroke="#38bdf8" stroke-width="2"></line>
+
+</svg>
